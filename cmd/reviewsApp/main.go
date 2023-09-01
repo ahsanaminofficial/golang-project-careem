@@ -16,8 +16,9 @@ func main() {
 	router := httprouter.New()
 	router.GET("/", controllers.HomepageHandler)
 	router.GET("/reviews", controllers.AllReviews)
-	router.GET("/reviews/:id", controllers.ReviewById)
+	router.GET("/review/:id", controllers.ReviewById)
 	router.POST("/review", controllers.CreateReview)
+	router.DELETE("/review/:id", controllers.DeleteReviewByID)
 
 	err := http.ListenAndServe(":3000", router)
 
